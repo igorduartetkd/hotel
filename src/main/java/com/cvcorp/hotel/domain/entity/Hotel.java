@@ -10,6 +10,7 @@ import java.util.Set;
 @Data
 @SuperBuilder
 public class Hotel extends BaseDomain {
+    private final Long id;
     private final String name;
     private final Long cityCode;
     private final String cityName;
