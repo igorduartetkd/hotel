@@ -1,13 +1,11 @@
 package com.cvcorp.hotel.domain.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
 @SuperBuilder
 public class Hotel extends BaseDomain {
     private final Long id;

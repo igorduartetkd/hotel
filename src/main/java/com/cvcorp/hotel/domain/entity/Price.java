@@ -1,9 +1,9 @@
 package com.cvcorp.hotel.domain.entity;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Getter
 @Builder
 public class Price extends BaseDomain {
 
