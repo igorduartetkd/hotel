@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public interface Mapper <D extends BaseDomain, E extends BaseEntity> {
+public interface EntityToDomainMapper<D extends BaseDomain, E extends BaseEntity> {
     default Optional<D> toDomain(Optional<E> entity) {
         return entity.isEmpty() ? Optional.empty() : toDomain(entity.get());
     }
@@ -21,14 +21,6 @@ public interface Mapper <D extends BaseDomain, E extends BaseEntity> {
                 .map(this::toDomain)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
-                .collect(Collectors.toSet());
-    }
-
-    E toEntity(D domain);
-
-    default Set<E> toEntity(Collection<D> domains) {
-        return domains == null ? Collections.emptySet() : domains.stream()
-                .map(this::toEntity)
                 .collect(Collectors.toSet());
     }
 }
